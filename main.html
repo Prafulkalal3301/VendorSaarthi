@@ -3,51 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VendorSaarthe</title>
+    <title>VendorSaarthi</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        #vegList { margin-top: 20px; }
-        #vegSuggestions { list-style-type: none; padding: 0; margin: 0; border: 1px solid #ddd; }
-        #vegSuggestions li { cursor: pointer; padding: 8px; }
-        #vegSuggestions li:hover { background-color: #f0f0f0; }
-        .hidden { display: none; }
-        .edit-price { margin-top: 10px; }
-        .price-input { width: 60px; margin-left: 10px; }
-        .quantity-dropdown { margin-left: 10px; }
-        #resultPopup { display: none; position: fixed; top: 20%; left: 20%; width: 60%; background: #fff; border: 1px solid #ddd; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); z-index: 1000; }
-        #resultPopup h3 { margin-top: 0; }
-        #resultPopup button { margin-top: 10px; }
-    </style>
 </head>
 <body>
-    <h1>VendorSaarthi</h1>
+    <div class="container">
+        <h1>VendorSaarthi</h1>
+        
+        <div class="input-section">
+            <h2>Add Vegetables</h2>
+            <input type="text" id="vegInput" placeholder="Search vegetables..." oninput="showSuggestions()" />
+            <ul id="vegSuggestions" class="hidden"></ul>
+            <input type="number" id="vegPrice" placeholder="Price" />
+            <select id="quantityUnit">
+                <option value="kg">kg</option>
+                <option value="ltr">ltr</option>
+                <option value="bundle">bundle</option>
+                <option value="dozen">dozen</option>
+            </select>
+            <button onclick="addVegetable()">Add Item</button>
+        </div>
 
-    <h2>Add Vegetables</h2>
-    <input type="text" id="vegInput" placeholder="Search vegetables..." oninput="showSuggestions()" />
-    <ul id="vegSuggestions" class="hidden"></ul>
-    <input type="number" id="vegPrice" placeholder="Price" />
-    <select id="quantityUnit">
-        <option value="kg">kg</option>
-        <option value="ltr">ltr</option>
-        <option value="bundle">bundle</option>
-        <option value="dozen">dozen</option>
+        <div id="vegListContainer" class="hidden">
+            <h3>Vegetable List</h3>
+            <div id="vegList"></div>
+            <button id="copyButton" class="hidden" onclick="generateAndCopyList()">Generate and Copy List</button>
+        </div>
 
-    </select>
-    <button onclick="addVegetable()">Add Item</button>
-
-    <div id="vegListContainer" class="hidden">
-        <h3>Vegetable List</h3>
-        <div id="vegList"></div>
-        <button id="copyButton" class="hidden" onclick="generateAndCopyList()">Generate and Copy List</button>
-    </div>
-
-    <div id="resultPopup">
-        <h3>Your Vegetable List</h3>
-        <pre id="finalListDisplay"></pre>
-        <button onclick="copyFinalList()">Copy to Clipboard</button>
-        <button onclick="closePopup()">ClosE</button>
+        <div id="resultPopup">
+            <h3>Your Vegetable List</h3>
+            <pre id="finalListDisplay"></pre>
+            <button onclick="copyFinalList()">Copy to Clipboard</button>
+            <button onclick="closePopup()">Close</button>
+        </div>
     </div>
 </body>
 </html>
-
+  
