@@ -117,7 +117,7 @@ function generateAndCopyList() {
         if (priceInput && unitSelect) {
             const price = priceInput.value;
             const unit = unitSelect.value;
-            listWithEmojis += `${getEmoji(veg)} ${veg}: ₹${price} @ ${unit}\n`;
+            listWithEmojis += `${getEmoji(veg)} ${veg}: ₹${price} / ${unit}\n`;
             updateVegetable(veg, price, unit); // Update local storage
         }
     });
